@@ -53,13 +53,13 @@ RSpec.describe User, type: :model do
       expect(@user2).to eq nil
     end
 
-    it "it passes when a email has spaces" do
+    it "it passes when an email has spaces" do
       @user = User.create(first_name: "moe", last_name: "shokai", email: "n@gmail.com", password: "1234", password_confirmation: "1234")
       @user2  = User.authenticate_with_credentials(" n@gmail.com ", "1234")
       expect(@user).to eq(@user2)
     end
 
-    it "it passes when a email has spaces" do
+    it "it passes when an email has capital letters" do
       @user = User.create(first_name: "moe", last_name: "shokai", email: "n@gmail.com", password: "1234", password_confirmation: "1234")
       @user2  = User.authenticate_with_credentials(" N@gmail.com ", "1234")
       expect(@user).to eq(@user2)
